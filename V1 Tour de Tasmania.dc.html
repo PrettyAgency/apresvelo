@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Tour de Tasmania | 5-Day Hobart Cycling Tour | Après Vélo</title>
+<meta name="description" content="Five days out of Hobart: Mt Wellington, gravel through the Pipeline Track, MONA, and a vineyard finish. Guided by Beardy McBeard, 12–15 riders, from A$2,995." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f2efe8; }
+  * { box-sizing: border-box; }
+  a { color: #1f3d33; }
+  a:hover { color: #cf0a2c; }
+  input, select, textarea, button { font: inherit; }
+  input:focus, select:focus, textarea:focus { outline: 2px solid #cf0a2c; outline-offset: 1px; }
+  [data-noscroll]::-webkit-scrollbar { display: none; }
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+<div data-screen-label="Tour de Tasmania pillar" style="background:#f2efe8;min-height:100vh;">
+
+<header style="background:#f2efe8;">
+<div ref="{{ headerRef }}" style="position:relative;z-index:80;">
+  <div style="max-width:1240px;margin:0 auto;padding:18px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a href="V1 Tasmania Hub.dc.html" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0;"><img src="images/apres-velo-logo.svg" alt="Après Vélo" style="height:40px;width:auto;display:block;" /></a>
+
+    <sc-if value="{{ isDesktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:4px;">
+        <button onClick="{{ toggleTasmaniaMenu }}" aria-expanded="{{ tasmaniaOpenStr }}" aria-haspopup="true" style="display:flex;align-items:center;gap:6px;background:none;border:none;padding:10px 14px;border-radius:6px;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;color:{{ tasmaniaBtnColor }};cursor:pointer;" style-hover="background:rgba(31,61,51,0.06);">
+          Tasmania
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="transform:{{ tasmaniaChevronRotate }};transition:transform 0.2s ease;flex-shrink:0;"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <button onClick="{{ toggleToursMenu }}" aria-expanded="{{ toursOpenStr }}" aria-haspopup="true" style="display:flex;align-items:center;gap:6px;background:none;border:none;padding:10px 14px;border-radius:6px;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;color:{{ toursBtnColor }};cursor:pointer;" style-hover="background:rgba(31,61,51,0.06);">
+          Tours
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="transform:{{ toursChevronRotate }};transition:transform 0.2s ease;flex-shrink:0;"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <a href="#" style="padding:10px 14px;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;color:#181c1e;text-decoration:none;border-radius:6px;" style-hover="background:rgba(31,61,51,0.06);">Shop</a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+      <sc-if value="{{ isDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <a href="tel:1800083566" style="font-family:'Archivo',sans-serif;font-size:15px;color:#181c1e;text-decoration:none;font-weight:600;">1800 083 566</a>
+        <a href="#enquire" style="background:#cf0a2c;color:#f2efe8;font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;padding:11px 22px;border-radius:6px;text-decoration:none;transition:opacity 0.15s ease;" style-hover="opacity:0.85;" style-focus-visible="outline:2px solid #181c1e;outline-offset:2px;">Enquire now</a>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleMobileMenu }}" aria-label="Open menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;flex-shrink:0;">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect width="22" height="2" fill="#181c1e"></rect><rect y="7" width="22" height="2" fill="#181c1e"></rect><rect y="14" width="22" height="2" fill="#181c1e"></rect></svg>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+
+  <div aria-hidden="{{ tasmaniaAriaHidden }}" style="position:absolute;top:100%;left:0;right:0;background:#faf8f3;border-top:1px solid #ddd8cc;box-shadow:0 20px 40px rgba(24,28,30,0.14);opacity:{{ tasmaniaPanelOpacity }};transform:{{ tasmaniaPanelTransform }};pointer-events:{{ tasmaniaPanelPointer }};transition:opacity 0.18s ease, transform 0.18s ease;z-index:70;">
+    <div style="max-width:1240px;margin:0 auto;padding:32px clamp(20px,5vw,64px) 40px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:22px;">
+        <div>
+          <p style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#1f3d33;margin:0 0 4px;">Tasmania</p>
+          <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#181c1e;margin:0;">Six ways to ride the island</h3>
+        </div>
+        <a href="V1 Tasmania Hub.dc.html" onClick="{{ closeMenus }}" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;color:#1f3d33;text-decoration:none;">See all Tasmania tours →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px 20px;">
+        <sc-for list="{{ tasmaniaNavTours }}" as="tour" hint-placeholder-count="6">
+          <a href="{{ tour.href }}" onClick="{{ closeMenus }}" style="display:flex;gap:12px;text-decoration:none;color:inherit;padding:10px;border-radius:6px;align-items:center;" style-hover="background:rgba(31,61,51,0.07);">
+            <div style="width:72px;height:58px;flex-shrink:0;border-radius:4px;overflow:hidden;">
+              <img src="{{ tour.img }}" alt="{{ tour.name }}" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div style="min-width:0;">
+              <p style="font-family:'Fraunces',serif;font-weight:600;font-size:14.5px;color:#181c1e;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ tour.name }}</p>
+              <p style="font-family:'Archivo',sans-serif;font-size:12px;color:#5c6670;margin:0 0 3px;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ tour.character }}</p>
+              <p style="font-family:'Archivo',sans-serif;font-size:11.5px;color:#1f3d33;font-weight:600;margin:0;">{{ tour.meta }}</p>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div aria-hidden="{{ toursAriaHidden }}" style="position:absolute;top:100%;left:0;right:0;background:#faf8f3;border-top:1px solid #ddd8cc;box-shadow:0 20px 40px rgba(24,28,30,0.14);opacity:{{ toursPanelOpacity }};transform:{{ toursPanelTransform }};pointer-events:{{ toursPanelPointer }};transition:opacity 0.18s ease, transform 0.18s ease;z-index:70;">
+    <div style="max-width:1240px;margin:0 auto;padding:32px clamp(20px,5vw,64px) 40px;display:grid;grid-template-columns:2fr 1fr;gap:48px;">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
+        <div>
+          <p style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#1f3d33;margin:0 0 14px;">By destination</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ destinationLinks }}" as="dest" hint-placeholder-count="7">
+              <a href="{{ dest.href }}" onClick="{{ closeMenus }}" style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:500;color:#181c1e;text-decoration:none;" style-hover="color:#cf0a2c;">{{ dest.name }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#1f3d33;margin:0 0 14px;">By tour type</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ typeLinks }}" as="typ" hint-placeholder-count="4">
+              <a href="{{ typ.href }}" onClick="{{ closeMenus }}" style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:500;color:#181c1e;text-decoration:none;" style-hover="color:#cf0a2c;">{{ typ.name }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <a href="V1 Tour de Tasmania.dc.html" onClick="{{ closeMenus }}" style="display:block;border-radius:8px;overflow:hidden;text-decoration:none;">
+        <div style="aspect-ratio:4/3;overflow:hidden;">
+          <img src="images/pillar-hero.webp" alt="Tour de Tasmania" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div style="padding:14px 16px;background:#1f3d33;">
+          <p style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:600;color:#cf0a2c;margin:0 0 4px;letter-spacing:0.03em;text-transform:uppercase;">Most popular</p>
+          <p style="font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:#f2efe8;margin:0 0 3px;">Tour de Tasmania</p>
+          <p style="font-family:'Archivo',sans-serif;font-size:12.5px;color:#f2efe8;opacity:0.8;margin:0;">Five days, does it all →</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenus }}" style="position:fixed;inset:0;background:rgba(24,28,30,0.5);z-index:90;">
+      <div onClick="{{ stopClick }}" style="position:absolute;top:0;right:0;bottom:0;width:min(86vw,360px);background:#f2efe8;overflow-y:auto;box-shadow:-8px 0 24px rgba(0,0,0,0.15);">
+        <div style="display:flex;justify-content:flex-end;padding:16px;">
+          <button onClick="{{ closeMenus }}" aria-label="Close menu" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;font-size:18px;cursor:pointer;">×</button>
+        </div>
+        <div style="display:flex;flex-direction:column;padding:0 20px 24px;">
+          <button onClick="{{ toggleMobileTasmania }}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px;background:none;border:none;border-bottom:1px solid #ddd8cc;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;color:#181c1e;cursor:pointer;">
+            Tasmania
+            <span style="font-size:18px;color:#1f3d33;">{{ mobileTasmaniaIcon }}</span>
+          </button>
+          <sc-if value="{{ mobileTasmaniaOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:2px;padding:10px 0;">
+              <sc-for list="{{ tasmaniaNavTours }}" as="tour" hint-placeholder-count="6">
+                <a href="{{ tour.href }}" onClick="{{ closeMenus }}" style="display:flex;align-items:center;gap:10px;padding:8px 4px;text-decoration:none;color:#181c1e;">
+                  <div style="width:44px;height:36px;flex-shrink:0;border-radius:4px;overflow:hidden;">
+                    <img src="{{ tour.img }}" alt="{{ tour.name }}" style="width:100%;height:100%;object-fit:cover;" />
+                  </div>
+                  <span style="font-family:'Archivo',sans-serif;font-size:14px;">{{ tour.name }}</span>
+                </a>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <button onClick="{{ toggleMobileTours }}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px;background:none;border:none;border-bottom:1px solid #ddd8cc;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;color:#181c1e;cursor:pointer;">
+            Tours
+            <span style="font-size:18px;color:#1f3d33;">{{ mobileToursIcon }}</span>
+          </button>
+          <sc-if value="{{ mobileToursOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:10px;padding:12px 4px;">
+              <sc-for list="{{ destinationLinks }}" as="dest" hint-placeholder-count="7">
+                <a href="{{ dest.href }}" onClick="{{ closeMenus }}" style="font-family:'Archivo',sans-serif;font-size:14px;color:#181c1e;text-decoration:none;">{{ dest.name }}</a>
+              </sc-for>
+              <div style="height:1px;background:#ddd8cc;margin:4px 0;"></div>
+              <sc-for list="{{ typeLinks }}" as="typ" hint-placeholder-count="4">
+                <a href="{{ typ.href }}" onClick="{{ closeMenus }}" style="font-family:'Archivo',sans-serif;font-size:14px;color:#181c1e;text-decoration:none;">{{ typ.name }}</a>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <a href="#" style="padding:14px 4px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;color:#181c1e;text-decoration:none;border-bottom:1px solid #ddd8cc;">Shop</a>
+
+          <a href="#enquire" onClick="{{ closeMenus }}" style="margin-top:20px;text-align:center;background:#cf0a2c;color:#f2efe8;font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;padding:13px;border-radius:6px;text-decoration:none;">Enquire now</a>
+          <a href="tel:1800083566" style="margin-top:14px;text-align:center;font-family:'Archivo',sans-serif;font-size:14px;color:#181c1e;text-decoration:none;font-weight:600;">1800 083 566</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+
+<section style="position:relative;height:min(84vh,720px);min-height:460px;overflow:hidden;">
+  <img src="images/pillar-hero.webp" alt="A cyclist descending Mt Wellington's switchback road above Hobart, with the city and river below" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(24,28,30,0) 25%, rgba(24,28,30,0.82) 100%);"></div>
+  <div style="position:relative;height:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(36px,5vw,64px);">
+    <div style="margin-bottom:16px;font-family:'Archivo',sans-serif;font-size:14px;">
+      <a href="V1 Tasmania Hub.dc.html" style="color:#f2efe8;opacity:0.85;text-decoration:none;">Tasmania cycling tours</a>
+      <span style="color:#f2efe8;opacity:0.6;"> / Tour de Tasmania</span>
+    </div>
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;color:#f2efe8;font-size:clamp(36px,6.5vw,68px);line-height:1.05;margin:0 0 16px;max-width:20ch;">Tour de Tasmania</h1>
+    <p style="font-family:'Archivo',sans-serif;color:#f2efe8;font-size:clamp(16px,2vw,19px);max-width:56ch;margin:0 0 28px;line-height:1.6;">Five days out of Hobart, one long lunch to finish: Mt Wellington's switchbacks, gravel through the Pipeline Track, and a MONA afternoon in between.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="#enquire" style="background:#cf0a2c;color:#f2efe8;font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;padding:14px 28px;border-radius:6px;text-decoration:none;transition:opacity 0.15s ease;" style-hover="opacity:0.85;" style-focus-visible="outline:2px solid #f2efe8;outline-offset:2px;">Book</a>
+      <a href="#itinerary" style="border:1px solid #f2efe8;color:#f2efe8;font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;padding:14px 28px;border-radius:6px;text-decoration:none;" style-hover="background:rgba(242,239,232,0.15);" style-focus-visible="outline:2px solid #f2efe8;outline-offset:2px;">View Itinerary</a>
+    </div>
+  </div>
+</section>
+
+<div style="background:#1f3d33;">
+  <div style="max-width:1240px;margin:0 auto;padding:28px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;">
+    <div><p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.65;margin:0 0 4px;">Days/Nights</p><p style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#f2efe8;margin:0;">5 / 5</p></div>
+    <div><p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.65;margin:0 0 4px;">Distance</p><p style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#f2efe8;margin:0;">378 km</p></div>
+    <div><p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.65;margin:0 0 4px;">Elevation</p><p style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#f2efe8;margin:0;">7,600 m</p></div>
+    <div><p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.65;margin:0 0 4px;">Level</p><p style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#f2efe8;margin:0;">4/5</p></div>
+    <div><p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.65;margin:0 0 4px;">Dates</p><p style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#f2efe8;margin:0;">26–31 Oct 2026</p></div>
+    <div><p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.65;margin:0 0 4px;">Price From</p><p style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#f2efe8;margin:0;">{{ fromPriceDisplay }} twin share</p></div>
+  </div>
+</div>
+
+<sc-if value="{{ stickyNavEnabled }}" hint-placeholder-val="{{ true }}">
+  <div style="position:sticky;top:0;z-index:40;background:#faf8f3;border-bottom:1px solid #ddd8cc;">
+    <div style="max-width:1240px;margin:0 auto;padding:14px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <nav style="display:flex;gap:22px;flex-wrap:wrap;overflow-x:auto;">
+        <a href="#overview" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navOverview }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">Overview</a>
+        <a href="#itinerary" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navItinerary }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">Itinerary</a>
+        <a href="#included" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navIncluded }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">What's included</a>
+        <a href="#captain" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navCaptain }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">Ride captain</a>
+        <a href="#reviews" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navReviews }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">Reviews</a>
+        <a href="#faqs" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navFaqs }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">FAQs</a>
+        <a href="#gallery" style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#1f3d33;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:{{ navGallery }};transition:border-color 0.15s ease;" style-hover="border-bottom:2px solid #cf0a2c;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">Gallery</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+        <span style="font-family:'Archivo',sans-serif;font-size:14px;color:#5c6670;white-space:nowrap;">{{ fromPriceDisplay }}</span>
+        <a href="#enquire" style="background:#cf0a2c;color:#f2efe8;font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;padding:10px 20px;border-radius:6px;text-decoration:none;white-space:nowrap;" style-focus-visible="outline:2px solid #181c1e;outline-offset:2px;">Book</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<main>
+<section id="overview" style="background:#f2efe8;padding:clamp(64px,8vw,100px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center;">
+    <div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#1f3d33;margin:0 0 8px;">Overview</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#181c1e;margin:0 0 20px;line-height:1.1;">Tasmania's whole hand, in five days</h2>
+      <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#181c1e;margin:0 0 16px;">Tour de Tasmania is five days out of Hobart and back, and it doesn't waste any of them. You'll climb Mt Wellington's 17.7km ribbon of switchbacks, grind gravel through the Pipeline Track, and finish with a Strade Bianche-style dash of white gravel into a vineyard lunch that runs long on purpose.</p>
+      <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#181c1e;margin:0 0 16px;">It's the tour we point first-timers toward, because it shows Tasmania's whole hand: sealed roads and dirt, coastline and forest, a gallery afternoon at MONA and a welcome dinner that starts the moment you land. Beardy leads every departure himself, which means the stories are true and the café stops are non-negotiable.</p>
+      <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#181c1e;margin:0;">Twelve to fifteen riders, one support vehicle, and five nights where the hardest decision is what to order after the ride.</p>
+    </div>
+    <div style="border-radius:6px;overflow:hidden;">
+      <img src="images/forest-descent-group.webp" alt="A group of cyclists cornering down a paved forest road near Hobart" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+  </div>
+</section>
+
+<section id="itinerary" style="background:#faf8f3;padding:clamp(64px,8vw,100px) 0;border-top:1px solid #ddd8cc;border-bottom:1px solid #ddd8cc;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#1f3d33;margin:0 0 8px;">Day by day</p>
+    <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#181c1e;margin:0 0 16px;line-height:1.1;">The five days</h2>
+    <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#5c6670;margin:0 0 40px;max-width:60ch;">378km and 7,600m of climbing.</p>
+
+    <div style="overflow-x:auto;margin-bottom:8px;">
+      <svg viewBox="0 0 1000 220" style="width:100%;height:auto;min-width:640px;display:block;">
+        <path d="{{ elevationFillPath }}" fill="#1f3d33" opacity="0.12"></path>
+        <path d="{{ elevationStrokePath }}" fill="none" stroke="#1f3d33" stroke-width="2.5"></path>
+        <line x1="92.6" y1="20" x2="92.6" y2="190" stroke="#ddd8cc" stroke-width="1"></line>
+        <line x1="423.3" y1="20" x2="423.3" y2="190" stroke="#ddd8cc" stroke-width="1"></line>
+        <line x1="655.9" y1="20" x2="655.9" y2="190" stroke="#ddd8cc" stroke-width="1"></line>
+        <line x1="788.5" y1="20" x2="788.5" y2="190" stroke="#ddd8cc" stroke-width="1"></line>
+        <line x1="0" y1="190" x2="1000" y2="190" stroke="#5c6670" stroke-width="1"></line>
+        <text x="46.3" y="212" text-anchor="middle" font-family="Archivo, sans-serif" font-size="15" font-weight="600" fill="#181c1e">Day 1</text>
+        <text x="257.9" y="212" text-anchor="middle" font-family="Archivo, sans-serif" font-size="15" font-weight="600" fill="#181c1e">Day 2</text>
+        <text x="539.6" y="212" text-anchor="middle" font-family="Archivo, sans-serif" font-size="15" font-weight="600" fill="#181c1e">Day 3</text>
+        <text x="722.2" y="212" text-anchor="middle" font-family="Archivo, sans-serif" font-size="15" font-weight="600" fill="#181c1e">Day 4</text>
+        <text x="894.3" y="212" text-anchor="middle" font-family="Archivo, sans-serif" font-size="15" font-weight="600" fill="#181c1e">Day 5</text>
+      </svg>
+    </div>
+
+    <div style="display:flex;flex-direction:column;margin-top:32px;">
+      <sc-for list="{{ days }}" as="day" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid #ddd8cc;">
+          <button onClick="{{ day.onToggle }}" style="width:100%;display:flex;align-items:center;gap:20px;background:none;border:none;padding:22px 0;cursor:pointer;text-align:left;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">
+            <span style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#1f3d33;flex-shrink:0;width:56px;">{{ day.dayLabel }}</span>
+            <span style="flex:1;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;color:#181c1e;">{{ day.title }}</span>
+              <span style="display:block;font-family:'Archivo',sans-serif;font-size:13px;color:#5c6670;margin-top:2px;">{{ day.statsLine }}</span>
+            </span>
+            <span style="font-family:'Archivo',sans-serif;font-size:22px;color:#1f3d33;flex-shrink:0;">{{ day.toggleIcon }}</span>
+          </button>
+          <sc-if value="{{ day.isOpen }}" hint-placeholder-val="{{ false }}">
+            <sc-if value="{{ day.hasImg }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:start;padding:0 0 28px 76px;">
+                <p style="font-family:'Archivo',sans-serif;font-size:15px;line-height:1.65;color:#181c1e;margin:0;max-width:60ch;">{{ day.description }}</p>
+                <div style="aspect-ratio:3/2;overflow:hidden;border-radius:6px;">
+                  <img src="{{ day.img }}" alt="{{ day.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ day.noImg }}" hint-placeholder-val="{{ true }}">
+              <p style="font-family:'Archivo',sans-serif;font-size:15px;line-height:1.65;color:#181c1e;margin:0 0 24px;max-width:70ch;padding-left:76px;">{{ day.description }}</p>
+            </sc-if>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="included" style="background:#f2efe8;padding:clamp(64px,8vw,100px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#1f3d33;margin:0 0 8px;">What's included</p>
+    <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#181c1e;margin:0 0 32px;line-height:1.1;">The honest breakdown</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+      <sc-for list="{{ inclusions }}" as="item" hint-placeholder-count="6">
+        <div style="background:#faf8f3;border:1px solid #ddd8cc;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
+          <div style="aspect-ratio:4/3;overflow:hidden;">
+            <img src="{{ item.img }}" alt="{{ item.label }}" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div style="padding:18px 20px 20px;">
+            <p style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#1f3d33;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 8px;">{{ item.label }}</p>
+            <p style="font-family:'Archivo',sans-serif;font-size:14px;line-height:1.55;color:#181c1e;margin:0;">{{ item.description }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:36px;">
+      <div>
+        <p style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#5c6670;letter-spacing:0.03em;text-transform:uppercase;margin:0 0 12px;">Not included</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;font-family:'Archivo',sans-serif;font-size:14px;color:#5c6670;line-height:1.5;"><span style="flex-shrink:0;">–</span>Flights to and from Hobart</li>
+          <li style="display:flex;gap:10px;font-family:'Archivo',sans-serif;font-size:14px;color:#5c6670;line-height:1.5;"><span style="flex-shrink:0;">–</span>Lunches (except the day 5 farewell lunch)</li>
+          <li style="display:flex;gap:10px;font-family:'Archivo',sans-serif;font-size:14px;color:#5c6670;line-height:1.5;"><span style="flex-shrink:0;">–</span>Personal travel insurance</li>
+          <li style="display:flex;gap:10px;font-family:'Archivo',sans-serif;font-size:14px;color:#5c6670;line-height:1.5;"><span style="flex-shrink:0;">–</span>Bike hire (available on request)</li>
+          <li style="display:flex;gap:10px;font-family:'Archivo',sans-serif;font-size:14px;color:#5c6670;line-height:1.5;"><span style="flex-shrink:0;">–</span>Alcohol beyond welcome and farewell dinners</li>
+        </ul>
+      </div>
+      <div style="padding:20px 24px;background:#faf8f3;border:1px solid #ddd8cc;border-radius:6px;align-self:start;">
+        <p style="font-family:'Archivo',sans-serif;font-size:14px;line-height:1.6;color:#181c1e;margin:0;"><strong>Travelling with a non-rider?</strong> They join the support vehicle, every meal and every night's stay for 15% off the twin-share price — just mention it when you enquire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="captain" style="background:#181c1e;padding:clamp(64px,8vw,100px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;align-items:center;">
+    <div style="border-radius:6px;overflow:hidden;">
+      <img src="images/gravel-group-beach.webp" alt="Ride captain Marcus 'Beardy' Enno leaping in an Après Vélo jersey on a Tasmania coastal ride" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+    <div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#f2efe8;opacity:0.7;margin:0 0 8px;">Your ride captain</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#f2efe8;margin:0 0 4px;line-height:1.1;">Beardy McBeard</h2>
+      <p style="font-family:'Archivo',sans-serif;font-size:15px;color:#f2efe8;opacity:0.55;margin:0 0 20px;">Marcus Enno</p>
+      <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#f2efe8;opacity:0.9;margin:0 0 16px;">Marcus 'Beardy' Enno has spent two decades photographing professional cycling around the world — and came home to Tasmania more convinced than ever that these are some of the best roads he's shot anywhere. These days he splits his time between a camera and a ride captain's radio, leading Après Vélo's Tasmania departures personally.</p>
+      <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#f2efe8;opacity:0.9;margin:0;">He knows every café, every gravel shortcut, and exactly which pinch on the Wellington climb to save your legs for. Ride with him for five days and you'll finish with better photos of yourself than you've ever taken, and a stranger's phone number you'll actually use.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:#f2efe8;padding:clamp(64px,8vw,100px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#1f3d33;margin:0 0 8px;">From the road</p>
+    <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#181c1e;margin:0 0 40px;line-height:1.1;">What riders say about this tour</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+      <sc-for list="{{ reviews }}" as="review" hint-placeholder-count="4">
+        <div style="background:#faf8f3;border:1px solid #ddd8cc;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:3px;">
+            <sc-for list="{{ review.stars }}" as="star" hint-placeholder-count="5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#cf0a2c"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+            </sc-for>
+          </div>
+          <p style="font-family:'Fraunces',serif;font-weight:400;font-size:17px;line-height:1.5;color:#181c1e;margin:0;font-style:italic;">"{{ review.quote }}"</p>
+          <p style="font-family:'Archivo',sans-serif;font-size:13px;color:#5c6670;margin:0;">{{ review.name }} · {{ review.year }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f2efe8;padding:clamp(56px,7vw,90px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <div style="background:#faf8f3;border:1px solid #ddd8cc;border-radius:8px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px;">
+      <div>
+        <p style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:700;margin:0 0 6px;">
+          <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          <span style="color:#181c1e;margin-left:6px;">Reviews</span>
+        </p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#181c1e;">4.9</span>
+          <div style="display:flex;gap:2px;">
+            <sc-for list="{{ googleSummaryStars }}" as="star" hint-placeholder-count="5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fbbc05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+            </sc-for>
+          </div>
+          <span style="font-family:'Archivo',sans-serif;font-size:13px;color:#5c6670;">(142)</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button onClick="{{ scrollGoogleLeft }}" aria-label="Scroll reviews left" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;color:#181c1e;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:#f2efe8;">‹</button>
+        <button onClick="{{ scrollGoogleRight }}" aria-label="Scroll reviews right" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;color:#181c1e;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:#f2efe8;">›</button>
+        <a href="#" style="background:#4285F4;color:#fff;font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:20px;text-decoration:none;margin-left:4px;white-space:nowrap;" style-hover="opacity:0.9;">Review us on Google</a>
+      </div>
+    </div>
+    <div ref="{{ googleScrollRef }}" data-noscroll style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:none;">
+      <sc-for list="{{ googleReviews }}" as="rev" hint-placeholder-count="6">
+        <div style="flex:0 0 250px;background:#faf8f3;border:1px solid #ddd8cc;border-radius:8px;padding:18px;scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <div style="width:40px;height:40px;border-radius:50%;background:{{ rev.avatarColor }};display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Archivo',sans-serif;font-weight:700;color:#fff;font-size:15px;">{{ rev.initial }}</span>
+              </div>
+              <div style="position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #faf8f3;">
+                <svg width="10" height="10" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg>
+              </div>
+            </div>
+            <div style="min-width:0;">
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13.5px;color:#181c1e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ rev.name }}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4" style="flex-shrink:0;"><path d="M12 2 15 5 19 5 19 9 22 12 19 15 19 19 15 19 12 22 9 19 5 19 5 15 2 12 5 9 5 5 9 5Z"></path><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <span style="font-family:'Archivo',sans-serif;font-size:11.5px;color:#5c6670;">{{ rev.time }}</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:2px;">
+            <sc-for list="{{ rev.stars }}" as="star" hint-placeholder-count="5">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="{{ star.color }}"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+            </sc-for>
+          </div>
+          <p style="font-family:'Archivo',sans-serif;font-size:13.5px;line-height:1.5;color:#181c1e;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">{{ rev.quote }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="faqs" style="background:#faf8f3;padding:clamp(64px,8vw,100px) 0;border-top:1px solid #ddd8cc;border-bottom:1px solid #ddd8cc;">
+  <div style="max-width:840px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#1f3d33;margin:0 0 8px;">Before you book</p>
+    <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#181c1e;margin:0 0 24px;line-height:1.1;">Tour de Tasmania FAQs</h2>
+    <div style="display:flex;flex-direction:column;">
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="12">
+        <div style="border-bottom:1px solid #ddd8cc;">
+          <button onClick="{{ faq.onToggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:20px 0;cursor:pointer;text-align:left;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">
+            <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;color:#181c1e;">{{ faq.q }}</span>
+            <span style="font-family:'Archivo',sans-serif;font-size:20px;color:#1f3d33;flex-shrink:0;">{{ faq.toggleIcon }}</span>
+          </button>
+          <sc-if value="{{ faq.isOpen }}" hint-placeholder-val="{{ false }}">
+            <p style="font-family:'Archivo',sans-serif;font-size:15px;line-height:1.65;color:#5c6670;margin:0 0 20px;max-width:70ch;">{{ faq.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="background:#f2efe8;padding:clamp(48px,6vw,80px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3vw,32px);color:#181c1e;margin:0;">Gallery</h2>
+      <div style="display:flex;gap:8px;flex-shrink:0;">
+        <button onClick="{{ scrollGalleryLeft }}" aria-label="Scroll gallery left" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;color:#181c1e;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:#f2efe8;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">‹</button>
+        <button onClick="{{ scrollGalleryRight }}" aria-label="Scroll gallery right" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;color:#181c1e;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:#f2efe8;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">›</button>
+      </div>
+    </div>
+    <div ref="{{ galleryScrollRef }}" data-noscroll style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:none;">
+      <sc-for list="{{ gallery }}" as="photo" hint-placeholder-count="12">
+        <div onClick="{{ photo.onOpen }}" style="flex:0 0 clamp(160px,22vw,240px);aspect-ratio:1;overflow:hidden;border-radius:4px;scroll-snap-align:start;cursor:pointer;">
+          <img src="{{ photo.src }}" alt="{{ photo.alt }}" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#faf8f3;padding:clamp(48px,6vw,80px) 0;border-top:1px solid #ddd8cc;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;margin-bottom:24px;">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3vw,32px);color:#181c1e;margin:0;">Video highlights</h2>
+      <div style="display:flex;gap:8px;flex-shrink:0;">
+        <button onClick="{{ scrollVideoLeft }}" aria-label="Scroll videos left" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;color:#181c1e;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:#f2efe8;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">‹</button>
+        <button onClick="{{ scrollVideoRight }}" aria-label="Scroll videos right" style="width:44px;height:44px;border-radius:50%;border:1px solid #ddd8cc;background:#fff;color:#181c1e;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:#f2efe8;" style-focus-visible="outline:2px solid #cf0a2c;outline-offset:2px;">›</button>
+      </div>
+    </div>
+    <div ref="{{ videoScrollRef }}" data-noscroll style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:none;">
+      <sc-for list="{{ videos }}" as="vid" hint-placeholder-count="6">
+        <div style="flex:0 0 clamp(140px,24vw,190px);aspect-ratio:9/16;border-radius:10px;overflow:hidden;position:relative;background:#181c1e;scroll-snap-align:start;">
+          <img src="{{ vid.poster }}" alt="{{ vid.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(24,28,30,0) 55%, rgba(24,28,30,0.75) 100%);"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="width:44px;height:44px;border-radius:50%;background:rgba(242,239,232,0.92);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="16" viewBox="0 0 16 18" fill="#181c1e"><path d="M0 0 L16 9 L0 18 Z"></path></svg>
+            </div>
+          </div>
+          <span style="position:absolute;bottom:10px;right:10px;background:rgba(24,28,30,0.6);color:#f2efe8;font-family:'Archivo',sans-serif;font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;">{{ vid.duration }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;background:rgba(24,28,30,0.92);z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,64px);">
+    <button onClick="{{ closeLightbox }}" aria-label="Close" style="position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,239,232,0.4);background:rgba(242,239,232,0.08);color:#f2efe8;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:rgba(242,239,232,0.18);">×</button>
+    <button onClick="{{ prevLightbox }}" aria-label="Previous image" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(242,239,232,0.4);background:rgba(242,239,232,0.08);color:#f2efe8;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:rgba(242,239,232,0.18);">‹</button>
+    <button onClick="{{ nextLightbox }}" aria-label="Next image" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(242,239,232,0.4);background:rgba(242,239,232,0.08);color:#f2efe8;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:rgba(242,239,232,0.18);">›</button>
+    <img src="{{ lightboxPhoto.src }}" alt="{{ lightboxPhoto.alt }}" onClick="{{ stopClick }}" style="max-width:min(90vw,1100px);max-height:80vh;width:auto;height:auto;object-fit:contain;border-radius:4px;" />
+    <div style="position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:'Archivo',sans-serif;font-size:13px;color:#f2efe8;opacity:0.7;">{{ lightboxPosition }}</div>
+  </div>
+</sc-if>
+
+<section id="enquire" style="background:#1f3d33;padding:clamp(64px,8vw,100px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;">
+    <div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:#f2efe8;opacity:0.75;margin:0 0 8px;">Ready when you are</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);color:#f2efe8;margin:0 0 20px;line-height:1.1;">Request your booking</h2>
+      <p style="font-family:'Archivo',sans-serif;font-size:16px;line-height:1.7;color:#f2efe8;opacity:0.85;margin:0 0 32px;max-width:44ch;">No payment now. One follow-up from a human, no spam.</p>
+
+      <div style="background:rgba(242,239,232,0.06);border:1px solid rgba(242,239,232,0.15);border-radius:6px;padding:28px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px;">
+        <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:#f2efe8;margin:0;line-height:1.15;">A$200 off your first tour</h3>
+        <p style="font-family:'Archivo',sans-serif;font-size:14px;color:#f2efe8;opacity:0.92;margin:0;line-height:1.5;">Request the digital brochure — the full day-by-day itinerary, plus $200 off your booking.</p>
+        <p style="font-family:'Archivo',sans-serif;font-size:12px;color:#f2efe8;opacity:0.7;margin:4px 0 8px;line-height:1.5;">*Offer excludes Hobart Half Day tours. *Offer in AUD.</p>
+        <a href="#" style="display:inline-block;border:1px solid #f2efe8;color:#f2efe8;background:none;font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;padding:11px 22px;border-radius:6px;text-decoration:none;width:fit-content;" style-hover="background:#f2efe8;color:#1f3d33;" style-focus-visible="outline:2px solid #f2efe8;outline-offset:2px;">Download brochure</a>
+      </div>
+
+      <p style="font-family:'Archivo',sans-serif;font-size:15px;color:#f2efe8;opacity:0.85;margin:0 0 8px;">Booking for someone else? <a href="#" style="color:#f2efe8;font-weight:600;text-decoration:underline;">Send a Tasmania gift voucher instead →</a></p>
+      <p style="font-family:'Archivo',sans-serif;font-size:15px;color:#f2efe8;opacity:0.85;margin:0;">Prefer to talk? <a href="tel:1800083566" style="color:#f2efe8;font-weight:600;text-decoration:underline;">1800 083 566</a></p>
+    </div>
+
+    <div style="background:#faf8f3;border-radius:8px;padding:32px;">
+      <div style="display:flex;gap:8px;margin-bottom:24px;background:#f2efe8;border-radius:6px;padding:4px;">
+        <button onClick="{{ setBookMode }}" style="flex:1;padding:11px;border:none;border-radius:5px;font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ bookTabBg }};color:{{ bookTabColor }};">I'm ready to book</button>
+        <button onClick="{{ setQuestionMode }}" style="flex:1;padding:11px;border:none;border-radius:5px;font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ questionTabBg }};color:{{ questionTabColor }};">I have questions</button>
+      </div>
+
+      <form style="display:flex;flex-direction:column;gap:16px;" onSubmit="{{ handleSubmit }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;">
+          <label style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#181c1e;">Name</span>
+            <input type="text" placeholder="Jamie Cooper" style="font-family:'Archivo',sans-serif;font-size:16px;padding:13px 12px;border:1px solid #ddd8cc;border-radius:5px;background:#fff;" />
+          </label>
+          <label style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#181c1e;">Email</span>
+            <input type="email" placeholder="jamie@email.com" style="font-family:'Archivo',sans-serif;font-size:16px;padding:13px 12px;border:1px solid #ddd8cc;border-radius:5px;background:#fff;" />
+          </label>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px;">
+          <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#181c1e;">Phone</span>
+          <input type="tel" placeholder="04xx xxx xxx" style="font-family:'Archivo',sans-serif;font-size:16px;padding:13px 12px;border:1px solid #ddd8cc;border-radius:5px;background:#fff;" />
+        </label>
+
+        <sc-if value="{{ isBookMode }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;">
+            <label style="display:flex;flex-direction:column;gap:6px;">
+              <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#181c1e;">Departure</span>
+              <select style="font-family:'Archivo',sans-serif;font-size:16px;padding:13px 12px;border:1px solid #ddd8cc;border-radius:5px;background:#fff;">
+                <option>26–31 Oct 2026</option>
+              </select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px;">
+              <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#181c1e;">Riders</span>
+              <select style="font-family:'Archivo',sans-serif;font-size:16px;padding:13px 12px;border:1px solid #ddd8cc;border-radius:5px;background:#fff;">
+                <option>Just me</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4+</option>
+              </select>
+            </label>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isQuestionMode }}" hint-placeholder-val="{{ false }}">
+          <label style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#181c1e;">Your question</span>
+            <textarea rows="3" placeholder="Ask away" style="font-family:'Archivo',sans-serif;font-size:16px;padding:13px 12px;border:1px solid #ddd8cc;border-radius:5px;background:#fff;resize:vertical;"></textarea>
+          </label>
+        </sc-if>
+
+        <button type="submit" style="margin-top:8px;background:#cf0a2c;color:#f2efe8;font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;padding:14px;border:none;border-radius:6px;cursor:pointer;transition:opacity 0.15s ease;" style-hover="opacity:0.9;" style-focus-visible="outline:2px solid #181c1e;outline-offset:2px;">{{ submitLabel }}</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f2efe8;padding:clamp(56px,7vw,90px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;margin-bottom:32px;">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3vw,32px);color:#181c1e;margin:0;">More ways to ride Tasmania</h2>
+      <a href="V1 Tasmania Hub.dc.html" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:14px;color:#1f3d33;text-decoration:none;">See all Tasmania cycling tours →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+      <sc-for list="{{ otherTours }}" as="tour" hint-placeholder-count="3">
+        <a href="{{ tour.href }}" style="display:flex;flex-direction:column;background:#faf8f3;border:1px solid #ddd8cc;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;">
+          <div style="aspect-ratio:4/3;overflow:hidden;">
+            <img src="{{ tour.img }}" alt="{{ tour.name }}" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:8px;">
+            <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:#181c1e;margin:0;">{{ tour.name }}</h3>
+            <p style="font-family:'Archivo',sans-serif;font-size:13px;color:#5c6670;margin:0;font-style:italic;">{{ tour.character }}</p>
+            <p style="font-family:'Archivo',sans-serif;font-size:13px;color:#181c1e;margin:4px 0 0;">{{ tour.days }} days · from {{ tour.price }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="background:#181c1e;padding:48px 0 32px;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;">
+    <div>
+      <img src="images/apres-velo-logo.svg" alt="Après Vélo" style="height:26px;width:auto;display:block;margin:0 0 10px;filter:brightness(0) invert(1);" />
+      <p style="font-family:'Archivo',sans-serif;font-size:13px;color:#f2efe8;opacity:0.6;margin:0;">Guided cycling tours, Australia-made.</p>
+    </div>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      <a href="V1 Tasmania Hub.dc.html" style="font-family:'Archivo',sans-serif;font-size:14px;color:#f2efe8;opacity:0.8;text-decoration:none;">Gravel tours</a>
+      <a href="V1 Tasmania Hub.dc.html" style="font-family:'Archivo',sans-serif;font-size:14px;color:#f2efe8;opacity:0.8;text-decoration:none;">All tours</a>
+      <a href="tel:1800083566" style="font-family:'Archivo',sans-serif;font-size:14px;color:#f2efe8;opacity:0.8;text-decoration:none;">1800 083 566</a>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultOpenDay&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;min&quot;:1,&quot;max&quot;:6,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;defaultFormMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;book&quot;,&quot;options&quot;:[&quot;book&quot;,&quot;questions&quot;],&quot;tsType&quot;:&quot;'book'|'questions'&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;stickyNavEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const startDay = Math.min(Math.max(parseInt(props.defaultOpenDay || 1, 10) - 1, 0), 5);
+    let savedCurrency = null;
+    try { savedCurrency = sessionStorage.getItem('av_currency'); } catch (e) {}
+    this.state = {
+      formMode: (props.defaultFormMode === 'questions') ? 'questions' : 'book',
+      openFaq: 0,
+      openDay: startDay,
+      openMenu: null,
+      mobileMenuOpen: false,
+      mobileAccordion: null,
+      isMobile: false,
+      currency: savedCurrency || 'AUD',
+    };
+    this._currencyWasCached = !!savedCurrency;
+    this.headerRef = React.createRef();
+    this.galleryScrollRef = React.createRef();
+    this.googleScrollRef = React.createRef();
+    this.videoScrollRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this._onNavKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        this.setState({ openMenu: null, mobileMenuOpen: false, mobileAccordion: null, lightboxIndex: null });
+        return;
+      }
+      if (this.state.lightboxIndex == null) return;
+      if (e.key === 'ArrowLeft') this.setState(s => ({ lightboxIndex: (s.lightboxIndex - 1 + this._galleryLen) % this._galleryLen }));
+      if (e.key === 'ArrowRight') this.setState(s => ({ lightboxIndex: (s.lightboxIndex + 1) % this._galleryLen }));
+    };
+    window.addEventListener('keydown', this._onNavKeyDown);
+    if (!this._currencyWasCached) {
+      var EU_COUNTRIES = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE'];
+      fetch('https://api.ipgeolocation.io/ipgeo?apiKey=YOUR_IPGEOLOCATION_API_KEY&fields=country_code2')
+        .then(function (r) { return r.json(); })
+        .then((data) => {
+          var cc = data && data.country_code2;
+          var cur = cc === 'US' ? 'USD' : cc === 'GB' ? 'GBP' : (EU_COUNTRIES.indexOf(cc) > -1 ? 'EUR' : 'AUD');
+          try { sessionStorage.setItem('av_currency', cur); } catch (e) {}
+          this.setState({ currency: cur });
+        })
+        .catch(function () {});
+    }
+    this._checkMobileNav = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this._checkMobileNav();
+    window.addEventListener('resize', this._checkMobileNav);
+    this._sectionIds = ['overview', 'itinerary', 'included', 'captain', 'reviews', 'faqs', 'gallery'];
+    this._onScrollSpy = () => {
+      var marker = 160;
+      var active = this._sectionIds[0];
+      for (var i = 0; i < this._sectionIds.length; i++) {
+        var el = document.getElementById(this._sectionIds[i]);
+        if (el && el.getBoundingClientRect().top <= marker) active = this._sectionIds[i];
+      }
+      if (active !== this.state.activeSection) this.setState({ activeSection: active });
+    };
+    this._onScrollSpy();
+    window.addEventListener('scroll', this._onScrollSpy, { passive: true });
+    this._onDocMouseDown = (e) => {
+      if (this.headerRef.current && !this.headerRef.current.contains(e.target)) {
+        this.setState({ openMenu: null });
+      }
+    };
+    document.addEventListener('mousedown', this._onDocMouseDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._onNavKeyDown);
+    window.removeEventListener('resize', this._checkMobileNav);
+    window.removeEventListener('scroll', this._onScrollSpy);
+    document.removeEventListener('mousedown', this._onDocMouseDown);
+  }
+
+  renderVals() {
+    const currency = this.state.currency || 'AUD';
+    const setCurrency = (e) => {
+      const v = e.target.value;
+      try { sessionStorage.setItem('av_currency', v); } catch (err) {}
+      this.setState({ currency: v });
+    };
+    const lowestTierPrices = { AUD: 'A$2,995', USD: 'US$1,750', EUR: '€995', GBP: '£995' };
+    const fromPriceDisplay = lowestTierPrices[currency] || lowestTierPrices.AUD;
+    const navLine = (on) => on ? '2px solid #cf0a2c' : '2px solid transparent';
+
+    const daysData = [
+      { dayLabel: '01', img: '', title: 'Cruisy Hobart roll-out', statsLine: '35 km · 720 m climbing', description: "An easy spin out of Hobart to shake off the flight — rolling roads, a coffee stop, and legs saved for the week ahead. We're back in town for a welcome dinner and a briefing on what's coming." },
+      { dayLabel: '02', img: 'images/coast-gravel-group.webp', title: 'Cygnet challenge', statsLine: '125 km · 2,000 m climbing', description: "The longest day on paper and the toughest in the legs: sealed roads down to Cygnet, then gravel along the coast with the ocean never far from view. Bring an appetite — dinner's earned tonight." },
+      { dayLabel: '03', img: '', title: 'Pipeline Track', statsLine: '88 km · 1,800 m climbing', description: "Gravel through the Pipeline Track in the morning, then we swap cleats for gallery legs at MONA in the afternoon. Dinner's included, and the conversation runs later than usual." },
+      { dayLabel: '04', img: 'images/highlands-switchback-riders.webp', title: 'Mt Wellington loop', statsLine: '50 km · 1,313 m climbing', description: "The tour's centrepiece: 17.7km at an average 7% straight up Wellington, with the support van shadowing every rider. The view from the top is the whole point." },
+      { dayLabel: '05', img: 'images/gravel-group-beach.webp', title: 'Vineyard ride', statsLine: '80 km · 1,800 m climbing', description: "Rolling roads out to wine country, then a Strade Bianche-style dash of white gravel into the last vineyard. Farewell lunch runs three hours, minimum, on purpose." },
+      { dayLabel: '06', img: '', title: 'Transfers out', statsLine: 'Travel day — no riding', description: "Breakfast, goodbyes, and a lift to Hobart Airport or wherever you're headed next." },
+    ];
+    const days = daysData.map((d, i) => ({
+      ...d,
+      isOpen: this.state.openDay === i,
+      hasImg: !!d.img,
+      noImg: !d.img,
+      toggleIcon: this.state.openDay === i ? '\u2013' : '+',
+      onToggle: () => this.setState(s => ({ openDay: s.openDay === i ? null : i })),
+    }));
+
+    const faqsData = [
+      { q: 'Is Tour de Tasmania road or gravel?', a: 'Both. Three road days, two proper gravel days (Cygnet and the Pipeline Track), so you\u2019ll want a bike that\u2019s comfortable on both, or ask us about hire.' },
+      { q: 'How hard is the Mt Wellington climb?', a: "17.7km at an average 7%, one long effort with a support van shadowing the group. It's graded into our overall difficulty 4/5 — tough, not brutal, and every one of our riders has made it to the top." },
+      { q: "What's included in the price?", a: 'All accommodation (twin share), all breakfasts, welcome and farewell dinners, ride-day support vehicle, mechanical support, and Beardy. Flights and most lunches aren\u2019t included — see the full breakdown above.' },
+      { q: 'Can I bring a non-riding partner?', a: 'Yes — they join the support vehicle and all meals/accommodation at 15% off the twin-share price.' },
+      { q: 'Is there a single supplement?', a: "Yes, ask when you enquire — we'll quote it alongside twin share." },
+      { q: 'What bike should I bring?', a: "A road bike with room for 32mm+ tyres handles every day comfortably; we'll advise on tyre choice for Cygnet and the Pipeline Track when you book. Hire bikes available." },
+      { q: 'How many riders are on this departure?', a: '12–15, one ride captain (Beardy), one support driver.' },
+      { q: 'What happens on day 6?', a: 'Transfers out — no riding, just breakfast and a lift to the airport or your next stop.' },
+      { q: 'Is Tasmania good for cycling?', a: "It's Australia's best-kept cycling secret. Quiet roads with courteous drivers, a world-class summit climb in kunanyi/Mt Wellington (17.7 km at 7%), the white-gravel farm roads of the Derwent Valley, and an east coast that looks like it was designed from the saddle. Add cool-climate riding weather, Hobart's food and wine, and distances short enough that you're never far from a great coffee." },
+      { q: "When's the best time of year for this tour?", a: "Spring and late summer. Our October–November departures catch Tasmania waking up — green valleys, snow still dusting the summit, 8–18°C riding temperatures. February–March brings the island's most settled weather and warm, golden light on the east coast." },
+      { q: 'Are e-bikes allowed on this tour?', a: "Yes — quality e-road and e-gravel bikes are welcome, and they're a brilliant leveller for couples or mates riding at different strengths. It needs to be a genuine road or gravel e-bike (not a commuter), and let us know at booking so we can plan charging at each stop." },
+      { q: 'How far in advance should I book?', a: "Earlier than you'd think. This departure is capped at around 15 riders and tends to sell out well ahead. If you're eyeing a specific date, four to six months out is the safe window; requesting a booking costs nothing and holds your conversation with us while you sort leave and flights." },
+    ];
+    const faqs = faqsData.map((f, i) => ({
+      ...f,
+      isOpen: this.state.openFaq === i,
+      toggleIcon: this.state.openFaq === i ? '\u2013' : '+',
+      onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
+    }));
+
+    const reviewsData = [
+      { quote: 'Did this as a 60th birthday present to myself. Wellington nearly finished me. Would do it again tomorrow.', name: 'Michael K.', year: '2025' },
+      { quote: 'The MONA afternoon on day three was the surprise highlight.', name: 'Ellen P.', year: '2024' },
+      { quote: 'Beardy\u2019s photos are the reason I booked. The riding was better than the photos.', name: 'Sarah M.', year: '2025' },
+      { quote: "White gravel into the vineyard on the last day, then a lunch that went for three hours. That's the whole philosophy right there.", name: 'Tom H.', year: '2026' },
+    ];
+    const reviews = reviewsData.map(r => ({ ...r, stars: [0, 1, 2, 3, 4] }));
+
+    const videos = [
+      { poster: 'images/highlands-switchback-riders.webp', alt: 'Descending the Central Highlands gravel switchbacks', duration: '0:24' },
+      { poster: 'images/pillar-hero.webp', alt: 'The Mt Wellington descent', duration: '0:31' },
+      { poster: 'images/coast-gravel-group.webp', alt: 'Gravel riding along the east coast', duration: '0:19' },
+      { poster: 'images/gallery-08.webp', alt: 'The group celebrating by the water', duration: '0:15' },
+      { poster: 'images/forest-descent-group.webp', alt: 'Cornering through the forest descent', duration: '0:22' },
+      { poster: 'images/apres-oysters.webp', alt: 'Après ride oysters and drinks', duration: '0:12' },
+    ];
+    const scrollVideoLeft = () => this.videoScrollRef.current && this.videoScrollRef.current.scrollBy({ left: -260, behavior: 'smooth' });
+    const scrollVideoRight = () => this.videoScrollRef.current && this.videoScrollRef.current.scrollBy({ left: 260, behavior: 'smooth' });
+
+    const inclusions = [
+      { label: 'Cycling', img: 'images/pillar-hero.webp', description: '378km of road and gravel across five days, with Mt Wellington\u2019s 17.7km climb as the centrepiece.' },
+      { label: 'Accommodation', img: 'images/forest-descent-group.webp', description: 'Five nights in boutique Hobart accommodation, twin share throughout.' },
+      { label: 'Meals', img: 'images/apres-oysters.webp', description: 'All breakfasts, the welcome and day 3 dinners, and the farewell lunch at the vineyard.' },
+      { label: 'Ride support', img: 'images/gallery-15.webp', description: 'Support vehicle, mechanical support, and bike wash-down and storage every night.' },
+      { label: 'Ride captain', img: 'images/gravel-group-beach.webp', description: 'Beardy McBeard leads every departure himself, with professional photography included.' },
+      { label: 'Extras', img: 'images/gallery-09.webp', description: 'MONA gallery entry on day 3, plus the stories and local knowledge only a local can give.' },
+    ];
+
+    const googleReviewsData = [
+      { name: 'Sarah Mitchell', initial: 'S', avatarColor: '#cf0a2c', rating: 5, time: '1 week ago', quote: 'Incredible tour, incredible scenery. Beardy and the team made it unforgettable.' },
+      { name: 'James Cooper', initial: 'J', avatarColor: '#1f3d33', rating: 5, time: '2 weeks ago', quote: "Best cycling holiday I've done. Couldn't recommend it more highly." },
+      { name: 'Priya Nair', initial: 'P', avatarColor: '#46687d', rating: 5, time: '2 weeks ago', quote: "Amazing support crew and gorgeous roads. Can't wait to book another." },
+      { name: 'Tom Baxter', initial: 'T', avatarColor: '#8a6d3b', rating: 4, time: '3 weeks ago', quote: 'Challenging but so rewarding. The après really is the best part of the whole thing.' },
+      { name: 'Linda Farrow', initial: 'L', avatarColor: '#5c6670', rating: 5, time: '1 month ago', quote: 'Professional, friendly, and the photos Beardy took are honestly better than my wedding photos.' },
+      { name: 'Marcus Webb', initial: 'M', avatarColor: '#cf0a2c', rating: 5, time: '1 month ago', quote: "Small group, big adventure. Wellington nearly broke me but I'd do it again tomorrow." },
+    ];
+    const googleReviews = googleReviewsData.map(r => ({ ...r, stars: [0, 1, 2, 3, 4].map(i => ({ color: i < r.rating ? '#fbbc05' : '#ddd8cc' })) }));
+    const googleSummaryStars = [0, 1, 2, 3, 4];
+    const scrollGoogleLeft = () => this.googleScrollRef.current && this.googleScrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    const scrollGoogleRight = () => this.googleScrollRef.current && this.googleScrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+
+    const galleryData = [
+      { src: 'images/coast-riders-lookout.webp', alt: 'Two riders pausing to look at the east coast from their gravel bikes' },
+      { src: 'images/apres-oysters.webp', alt: 'A plate of fresh oysters with an Après Vélo rider in the background' },
+      { src: 'images/farmland-gravel-group.webp', alt: 'Cyclists riding gravel roads through highland farmland under a dramatic sky' },
+      { src: 'images/rural-descent.webp', alt: 'A cyclist descending a quiet rural road past farmhouses' },
+      { src: 'images/gravel-group-beach.webp', alt: 'Après Vélo riders posing on a rocky Tasmanian coastline' },
+      { src: 'images/forest-descent-group.webp', alt: 'Cyclists cornering on a paved forest descent' },
+      { src: 'images/coast-gravel-group.webp', alt: 'Five cyclists riding a gravel path along the Tasmanian coast' },
+      { src: 'images/highlands-switchback-riders.webp', alt: 'Riders on a winding dolerite mountain road in the Central Highlands' },
+      { src: 'images/gallery-08.webp', alt: 'Après Vélo riders celebrating together by the water on tour' },
+      { src: 'images/gallery-09.webp', alt: 'Riders sharing a long dinner table at an Après Vélo group dinner' },
+      { src: 'images/gallery-15.webp', alt: 'The full group at a lookout, bikes propped against the railing' },
+      { src: 'images/gallery-20.webp', alt: 'The group celebrating in their Après Vélo beard T-shirts' },
+    ];
+    this._galleryLen = galleryData.length;
+    const gallery = galleryData.map((g, i) => ({ ...g, onOpen: () => this.setState({ lightboxIndex: i }) }));
+    const lightboxIndex = this.state.lightboxIndex;
+    const lightboxOpen = lightboxIndex != null;
+    const lightboxPhoto = lightboxOpen ? galleryData[lightboxIndex] : { src: '', alt: '' };
+    const lightboxPosition = lightboxOpen ? `${lightboxIndex + 1} / ${galleryData.length}` : '';
+    const closeLightbox = (e) => { if (e) e.stopPropagation(); this.setState({ lightboxIndex: null }); };
+    const prevLightbox = (e) => { e.stopPropagation(); this.setState(s => ({ lightboxIndex: (s.lightboxIndex - 1 + galleryData.length) % galleryData.length })); };
+    const nextLightbox = (e) => { e.stopPropagation(); this.setState(s => ({ lightboxIndex: (s.lightboxIndex + 1) % galleryData.length })); };
+
+    const otherTours = [
+      { name: 'East Coast Gravel', character: "The purist's week — road, coastline, nothing else.", days: 7, price: 'A$3,450', img: 'images/coast-solo-beach.webp', href: 'https://apresvelo.com/pages/tasmania-east-coast-gravel-adventure-about-this-tour' },
+      { name: 'Coast to Coast Gravel', character: 'Dirt from one coast to the other.', days: 6, price: 'A$3,995', img: 'images/coast-gravel-group.webp', href: 'https://apresvelo.com/pages/australia-tasmania-launceston-hobart' },
+      { name: 'Central Highlands Epic', character: 'Climbers only. Apply within.', days: 5, price: 'A$4,250', img: 'images/highlands-switchback-riders.webp', href: 'https://apresvelo.com/pages/tasmania-grupetto-cycling-tour-about-this-tour' },
+    ];
+
+    const openMenu = this.state.openMenu;
+    const isMobile = this.state.isMobile;
+    const tasmaniaOpen = openMenu === 'tasmania';
+    const toursOpen = openMenu === 'tours';
+    const toggleTasmaniaMenu = () => this.setState(s => ({ openMenu: s.openMenu === 'tasmania' ? null : 'tasmania' }));
+    const toggleToursMenu = () => this.setState(s => ({ openMenu: s.openMenu === 'tours' ? null : 'tours' }));
+    const closeMenus = () => this.setState({ openMenu: null, mobileMenuOpen: false, mobileAccordion: null });
+    const toggleMobileMenu = () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen }));
+    const toggleMobileTasmania = () => this.setState(s => ({ mobileAccordion: s.mobileAccordion === 'tasmania' ? null : 'tasmania' }));
+    const toggleMobileTours = () => this.setState(s => ({ mobileAccordion: s.mobileAccordion === 'tours' ? null : 'tours' }));
+    const stopClick = (e) => e.stopPropagation();
+    const panelStyle = (open) => ({ opacity: open ? 1 : 0, transform: open ? 'translateY(0)' : 'translateY(-8px)', pointer: open ? 'auto' : 'none' });
+    const tasmaniaPanel = panelStyle(tasmaniaOpen);
+    const toursPanel = panelStyle(toursOpen);
+
+    const tasmaniaNavTours = [
+      { name: 'Tour de Tasmania', img: 'images/pillar-hero.webp', character: 'Five days, does it all.', meta: '5 days · from A$2,995', href: 'V1 Tour de Tasmania.dc.html' },
+      { name: 'East Coast Gravel', img: 'images/coast-solo-beach.webp', character: "The purist's week, road only.", meta: '7 days · from A$3,450', href: 'https://apresvelo.com/pages/tasmania-east-coast-gravel-adventure-about-this-tour' },
+      { name: 'Coast to Coast Gravel', img: 'images/coast-gravel-group.webp', character: 'Dirt from one coast to the other.', meta: '6 days · from A$3,995', href: 'https://apresvelo.com/pages/australia-tasmania-launceston-hobart' },
+      { name: 'Central Highlands Epic', img: 'images/highlands-switchback-riders.webp', character: 'Climbers only. Apply within.', meta: '5 days · from A$4,250', href: 'https://apresvelo.com/pages/tasmania-grupetto-cycling-tour-about-this-tour' },
+      { name: 'Hobart Half Day', img: 'images/rural-descent.webp', character: 'Your first Tasmania, taken gently.', meta: '5 days · from A$2,995', href: 'https://apresvelo.com/pages/hobart-half-day-cycling-tours' },
+      { name: 'Tasmania Bespoke Tour', img: 'images/gravel-group-beach.webp', character: 'Built around you, your dates.', meta: 'Custom-built for your group', href: 'https://apresvelo.com/pages/bespoke-cycling-tour-enquiry' },
+    ];
+    const destinationLinks = [
+      { name: 'Tasmania', href: 'V1 Tasmania Hub.dc.html' },
+      { name: 'Japan', href: '#' },
+      { name: 'Slovenia', href: '#' },
+      { name: 'South Africa', href: '#' },
+      { name: 'Morocco', href: '#' },
+      { name: 'Mallorca', href: '#' },
+      { name: 'Sunshine Coast', href: '#' },
+    ];
+    const typeLinks = [
+      { name: 'All Tours', href: '#' },
+      { name: 'Gravel Tours', href: '#' },
+      { name: 'Bespoke Tours', href: '#' },
+      { name: 'Hobart Half Day Tours', href: '#' },
+    ];
+
+    const isBookMode = this.state.formMode === 'book';
+    return {
+      headerRef: this.headerRef,
+      isMobile, isDesktopNav: !isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen, toggleMobileMenu,
+      toggleTasmaniaMenu, toggleToursMenu, closeMenus, stopClick,
+      tasmaniaBtnColor: tasmaniaOpen ? '#cf0a2c' : '#181c1e',
+      toursBtnColor: toursOpen ? '#cf0a2c' : '#181c1e',
+      tasmaniaChevronRotate: tasmaniaOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      toursChevronRotate: toursOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      tasmaniaOpenStr: String(tasmaniaOpen), toursOpenStr: String(toursOpen),
+      tasmaniaAriaHidden: String(!tasmaniaOpen), toursAriaHidden: String(!toursOpen),
+      tasmaniaPanelOpacity: tasmaniaPanel.opacity, tasmaniaPanelTransform: tasmaniaPanel.transform, tasmaniaPanelPointer: tasmaniaPanel.pointer,
+      toursPanelOpacity: toursPanel.opacity, toursPanelTransform: toursPanel.transform, toursPanelPointer: toursPanel.pointer,
+      tasmaniaNavTours, destinationLinks, typeLinks,
+      toggleMobileTasmania, toggleMobileTours,
+      mobileTasmaniaOpen: this.state.mobileAccordion === 'tasmania',
+      mobileToursOpen: this.state.mobileAccordion === 'tours',
+      mobileTasmaniaIcon: this.state.mobileAccordion === 'tasmania' ? '\u2013' : '+',
+      mobileToursIcon: this.state.mobileAccordion === 'tours' ? '\u2013' : '+',
+      days, faqs, reviews, gallery, otherTours,
+      currency, setCurrency, fromPriceDisplay,
+      navOverview: navLine(this.state.activeSection === 'overview' || !this.state.activeSection),
+      navItinerary: navLine(this.state.activeSection === 'itinerary'),
+      navIncluded: navLine(this.state.activeSection === 'included'),
+      navCaptain: navLine(this.state.activeSection === 'captain'),
+      navReviews: navLine(this.state.activeSection === 'reviews'),
+      navFaqs: navLine(this.state.activeSection === 'faqs'),
+      navGallery: navLine(this.state.activeSection === 'gallery'),
+      googleReviews, googleSummaryStars, googleScrollRef: this.googleScrollRef, scrollGoogleLeft, scrollGoogleRight,
+      inclusions, videos, videoScrollRef: this.videoScrollRef, scrollVideoLeft, scrollVideoRight,
+      galleryScrollRef: this.galleryScrollRef,
+      scrollGalleryLeft: () => this.galleryScrollRef.current && this.galleryScrollRef.current.scrollBy({ left: -320, behavior: 'smooth' }),
+      scrollGalleryRight: () => this.galleryScrollRef.current && this.galleryScrollRef.current.scrollBy({ left: 320, behavior: 'smooth' }),
+      lightboxOpen, lightboxPhoto, lightboxPosition, closeLightbox, prevLightbox, nextLightbox,
+      elevationStrokePath: 'M0,184.2 L23.2,172.7 L46.3,181.4 L69.5,167.0 L92.6,178.5 L92.6,166 L147.5,78 L202.7,126 L258.0,30 L312.8,94 L368.1,54 L423.3,110 L423.3,161.2 L469.8,74.8 L516.3,60.4 L562.9,103.6 L609.4,139.6 L655.9,146.8 L655.9,174.2 L689.1,169.0 L722.2,90.1 L755.3,158.5 L788.5,174.2 L788.5,154 L823.6,118 L858.9,139.6 L894.3,103.6 L929.4,125.2 L964.7,89.2 L1000,110.8',
+      elevationFillPath: 'M0,184.2 L23.2,172.7 L46.3,181.4 L69.5,167.0 L92.6,178.5 L92.6,166 L147.5,78 L202.7,126 L258.0,30 L312.8,94 L368.1,54 L423.3,110 L423.3,161.2 L469.8,74.8 L516.3,60.4 L562.9,103.6 L609.4,139.6 L655.9,146.8 L655.9,174.2 L689.1,169.0 L722.2,90.1 L755.3,158.5 L788.5,174.2 L788.5,154 L823.6,118 L858.9,139.6 L894.3,103.6 L929.4,125.2 L964.7,89.2 L1000,110.8 L1000,190 L0,190 Z',
+      isBookMode,
+      isQuestionMode: !isBookMode,
+      bookTabBg: isBookMode ? '#cf0a2c' : 'transparent',
+      bookTabColor: isBookMode ? '#f2efe8' : '#181c1e',
+      questionTabBg: !isBookMode ? '#cf0a2c' : 'transparent',
+      questionTabColor: !isBookMode ? '#f2efe8' : '#181c1e',
+      submitLabel: isBookMode ? 'Request my booking' : 'Send my questions',
+      setBookMode: () => this.setState({ formMode: 'book' }),
+      setQuestionMode: () => this.setState({ formMode: 'questions' }),
+      handleSubmit: (e) => e.preventDefault(),
+      stickyNavEnabled: this.props.stickyNavEnabled ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
