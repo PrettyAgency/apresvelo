@@ -1,0 +1,4 @@
+Original V3 palette (pre 9 Oct 2026 change)
+oat #f2efe8 | milky white #faf8f3 | darker oat #e6e1d4 | border #ddd8cc | forest green #1f3d33 | red #cf0a2c | ink #181c1e | grey text #5c6670
+New: white #ffffff | light grey #f3f4f5 | panel grey #e8eaec | border #dfe2e5
+V2 pages retain the original palette and can be copied back if a full revert is wanted.
